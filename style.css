@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Poiret+One|Roboto|Rubik|Share&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: gray;
+
+}
+body {
+        /* font-family: 'Poiret One', cursive; */
+    /* font-family: 'Share', cursive; */
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Rubik', sans-serif;
+
+}
+
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.location {
+    margin: 2rem 0 3rem 0;
+}
+.weather-description{
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+}
+.temperature-wrapper {
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* font-family: 'Poiret One', cursive; */
+
+}
+.min-max-wrapper {
+    display: flex;  
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+.current-temp{
+    font-size: 3rem;
+    margin-bottom: 1.2rem ;
+}
+.feels-like-temp {
+    margin-bottom: 1.2rem
+
+}
+.min-temp-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-right: 20px;
+}
+.max-temp-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-left: 20px;
+}
+p {
+    font-size: 1rem;
+}
