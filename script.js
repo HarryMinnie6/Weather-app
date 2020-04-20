@@ -32,7 +32,7 @@ function weather() {
             let latitude = position.coords.latitude
             let longitude = position.coords.longitude
                      
-            let api1 =`www.https:api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`
+            let api1 =`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`
             fetch(api1)
             .then(function(getApi) {
                 let data =getApi.json()
