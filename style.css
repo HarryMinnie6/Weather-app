@@ -11,6 +11,7 @@ body {
     /* font-family: 'Share', cursive; */
     /* font-family: 'Roboto', sans-serif; */
     font-family: 'Rubik', sans-serif;
+    box-sizing: border-box;
 
 }
 
@@ -64,5 +65,55 @@ body {
     margin-left: 20px;
 }
 p {
+    font-size: 1rem;
+}
+
+.extended-forecast{
+    display: grid;
+    gap: 2px;
+    grid-template-areas: "day-one day-two" 
+                         "day-three day-four"
+}
+.day-one{
+    grid-area: day-one;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    padding: 5px;
+}
+.day-two{
+    grid-area: day-two;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    padding: 5px;
+}
+.day-three{
+    grid-area: day-three;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    padding: 5px;  
+}
+.day-four{
+    grid-area: day-four;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    padding: 5px;   
+}
+.min-max-wrapper-forecast {
+    display: flex;
+    flex-direction: column;
+}
+.forecast-img{
+    width: 30px;
+    height: 30px;
+}
+.min-temp-forecast, .max-temp-forecast {
     font-size: 1rem;
 }

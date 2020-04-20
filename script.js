@@ -39,7 +39,7 @@ function weather() {
                 return data
             })
             .then(function(data) {
-                console.log(data);
+                // console.log(data);
                 place.innerText = data.name
                 icon.innerHTML = `<img src="weather-symbols/${data.weather[0].icon}.png"/>`
                 description.innerText = `${data.weather[0].description}` 
@@ -52,48 +52,83 @@ function weather() {
     } 
 }
 
-// window.addEventListener('load', weather2)
+// let place2 = document.querySelector('.location')
+let day1 = document.querySelector('.day1')
+let icon1 = document.querySelector('.icon-day1')
+let minTemp1 = document.querySelector('.min-temp-day1')
+let maxTemp1 = document.querySelector('.max-temp-day1')
 
-// function weather2() {
-//     let latitude;
-//     let longitude;
-//     if (navigator.geolocation){
-//         navigator.geolocation.getCurrentPosition( function(position) {
+let day2 = document.querySelector('.day2')
+let icon2 = document.querySelector('.icon-day2')
+let minTemp2 = document.querySelector('.min-temp-day2')
+let maxTemp2 = document.querySelector('.max-temp-day2')
+
+let icon3 = document.querySelector('.icon-day3')
+let minTemp3 = document.querySelector('.min-temp-day3')
+let maxTemp3 = document.querySelector('.max-temp-day3')
+
+let icon4 = document.querySelector('.icon-day4')
+let minTemp4 = document.querySelector('.min-temp-day4')
+let maxTemp4 = document.querySelector('.max-temp-day4')
+
+window.addEventListener('load', weather2)
+
+function weather2() {
+    let latitude;
+    let longitude;
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition( function(position) {
            
-//             latitude = position.coords.latitude
-//             longitude = position.coords.longitude
+            latitude = position.coords.latitude
+            longitude = position.coords.longitude
             
-            
+            let api2 =`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${key}`
+            fetch(api2)
+            .then(function(data) {
+                return data.json()
+            })
+            .then(data => {
+                console.log(data);
+                console.log();
+                              
+            console.log(`${data.current.weather[0].description}`);
+            console.log(`tomorrow min: ${Math.floor(data.daily[1].temp.min-kelvin)}`);
+            console.log(`tomorrow max: ${Math.floor(data.daily[1].temp.max-kelvin)}`);
+            console.log(`tomorrow icon: ${data.daily[1].weather[0].icon}`);
+            console.log(`dt: ${data.daily[1].dt}`);
+
+                    
             
 
-//             let api2 =`https:api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${key}`
-//             fetch(api2)
-//             .then(function(data) {
-//                 return data.json()
-//             })
-//             .then(data => {
-//                 console.log(data);
-                // data.main.temp
-                // data.name
+    
+            icon1.innerHTML = `<img class='forecast-img' src="weather-symbols/${data.daily[1].weather[0].icon}.png"/>`
+            minTemp1.innerText = `${Math.floor(data.daily[1].temp.min-kelvin)}°C`
+            maxTemp1.innerText = `${Math.floor(data.daily[1].temp.max-kelvin)}°C`
 
-                // console.log(`${data.lat} + ${data.lon}`);
-                // console.log(`Actual temp: ${Math.floor(data.current.temp-kelvin)}°C`);
-                // console.log(`feels like temp: ${Math.floor(data.current.feels_like-kelvin)}°C`);
-                // console.log(`${data.current.humidity}%`);
-                // console.log(`${data.timezone}`);
-                // // console.log(`${data.sys.id}`);
-                // console.log(`${data.current.weather[0].description}`);
-                // // adding elements to the dom
-                // description.innerText = `${data.current.weather[0].description}`
+            
+           
+            icon2.innerHTML = `<img class='forecast-img' src="weather-symbols/${data.daily[2].weather[0].icon}.png"/>`
+            minTemp2.innerText = `${Math.floor(data.daily[2].temp.min-kelvin)}°C`
+            maxTemp2.innerText = `${Math.floor(data.daily[2].temp.max-kelvin)}°C`
 
-//                 })
-//         })
+            icon3.innerHTML = `<img class='forecast-img' src="weather-symbols/${data.daily[3].weather[0].icon}.png"/>`
+            minTemp3.innerText = `${Math.floor(data.daily[3].temp.min-kelvin)}°C`
+            maxTemp3.innerText = `${Math.floor(data.daily[3].temp.max-kelvin)}°C`
+
+            icon4.innerHTML = `<img class='forecast-img' src="weather-symbols/${data.daily[4].weather[0].icon}.png"/>`
+            minTemp4.innerText = `${Math.floor(data.daily[4].temp.min-kelvin)}°C`
+            maxTemp4.innerText = `${Math.floor(data.daily[4].temp.max-kelvin)}°C`
+             
+                
+
+                })
+        })
        
 
-//     } 
-// }
+    } 
+}
 
-//after page loads we get the location
+
 
 
 
