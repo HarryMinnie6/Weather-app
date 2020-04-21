@@ -41,7 +41,7 @@ function weather() {
             .then(function(data) {
                 // console.log(data);
                 place.innerText = data.name
-                icon.innerHTML = `<img src="weather-symbols/${data.weather[0].icon}.png"/>`
+                icon.innerHTML = `<img class="icon-img" src="weather-symbols/${data.weather[0].icon}.png"/>`
                 description.innerText = `${data.weather[0].description}` 
                 currentTemp.innerText = `${Math.floor(data.main.temp-kelvin)}°C`
                 feelsLikeTemp.innerText = `feels like: ${Math.floor(data.main.feels_like-kelvin)}°C`
@@ -63,15 +63,32 @@ let icon2 = document.querySelector('.icon-day2')
 let minTemp2 = document.querySelector('.min-temp-day2')
 let maxTemp2 = document.querySelector('.max-temp-day2')
 
+let day3 = document.querySelector('.day3')
 let icon3 = document.querySelector('.icon-day3')
 let minTemp3 = document.querySelector('.min-temp-day3')
 let maxTemp3 = document.querySelector('.max-temp-day3')
 
+let day4 = document.querySelector('.day4')
 let icon4 = document.querySelector('.icon-day4')
 let minTemp4 = document.querySelector('.min-temp-day4')
 let maxTemp4 = document.querySelector('.max-temp-day4')
 
 window.addEventListener('load', weather2)
+
+function convertTimestamp(apiTimeStamp){
+    const day = new Date(apiTimeStamp*1000)
+    const dayOfWeek = new Array();
+    dayOfWeek[0] = "Sun";
+    dayOfWeek[1] = "Mon";
+    dayOfWeek[2] = "Tue";
+    dayOfWeek[3] = "Wed";
+    dayOfWeek[4] = "Thu";
+    dayOfWeek[5] = "Fri";
+    dayOfWeek[6] = "Sat";        
+    let realDay = dayOfWeek[day.getDay()]
+    return realDay
+}
+convertTimestamp()
 
 function weather2() {
     let latitude;
@@ -87,44 +104,31 @@ function weather2() {
             .then(function(data) {
                 return data.json()
             })
-            .then(data => {
+            .then(function(data) {
                 console.log(data);
                 console.log();
-                              
-            console.log(`${data.current.weather[0].description}`);
-            console.log(`tomorrow min: ${Math.floor(data.daily[1].temp.min-kelvin)}`);
-            console.log(`tomorrow max: ${Math.floor(data.daily[1].temp.max-kelvin)}`);
-            console.log(`tomorrow icon: ${data.daily[1].weather[0].icon}`);
-            console.log(`dt: ${data.daily[1].dt}`);
-
-                    
-            
-
-    
+                                     
+            day1.innerHTML = convertTimestamp(data.daily[1].dt)
             icon1.innerHTML = `<img class='forecast-img' src="weather-symbols/${data.daily[1].weather[0].icon}.png"/>`
             minTemp1.innerText = `${Math.floor(data.daily[1].temp.min-kelvin)}°C`
             maxTemp1.innerText = `${Math.floor(data.daily[1].temp.max-kelvin)}°C`
-
             
-           
+            day2.innerHTML = convertTimestamp(data.daily[2].dt)
             icon2.innerHTML = `<img class='forecast-img' src="weather-symbols/${data.daily[2].weather[0].icon}.png"/>`
             minTemp2.innerText = `${Math.floor(data.daily[2].temp.min-kelvin)}°C`
             maxTemp2.innerText = `${Math.floor(data.daily[2].temp.max-kelvin)}°C`
 
+            day3.innerHTML = convertTimestamp(data.daily[3].dt)
             icon3.innerHTML = `<img class='forecast-img' src="weather-symbols/${data.daily[3].weather[0].icon}.png"/>`
             minTemp3.innerText = `${Math.floor(data.daily[3].temp.min-kelvin)}°C`
             maxTemp3.innerText = `${Math.floor(data.daily[3].temp.max-kelvin)}°C`
 
+            day4.innerHTML = convertTimestamp(data.daily[4].dt)
             icon4.innerHTML = `<img class='forecast-img' src="weather-symbols/${data.daily[4].weather[0].icon}.png"/>`
             minTemp4.innerText = `${Math.floor(data.daily[4].temp.min-kelvin)}°C`
-            maxTemp4.innerText = `${Math.floor(data.daily[4].temp.max-kelvin)}°C`
-             
-                
-
+            maxTemp4.innerText = `${Math.floor(data.daily[4].temp.max-kelvin)}°C`            
                 })
         })
-       
-
     } 
 }
 

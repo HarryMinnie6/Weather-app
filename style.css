@@ -3,51 +3,79 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: gray;
-
+    
 }
 body {
-        /* font-family: 'Poiret One', cursive; */
-    /* font-family: 'Share', cursive; */
-    /* font-family: 'Roboto', sans-serif; */
+    /* font-family: 'Poiret One', cursive; */
+/* font-family: 'Share', cursive; */
+/* font-family: 'Roboto', sans-serif; */
     font-family: 'Rubik', sans-serif;
     box-sizing: border-box;
-
+    background-color: rgb(241, 241, 241);
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    height: 100vh;
 }
 
 .site-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
+    max-height:100%;
+    /* background:linear-gradient(rgb(3, 0, 151),rgb(134, 6, 128)); */
+}
+.today-forecast {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(104, 209, 72);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 0 90px 0 90px;
 }
 .location {
-    margin: 2rem 0 3rem 0;
+    margin: 3.8rem 0 20px 0;
+    font-size: 3rem;
+    /* background-color: rgb(204, 139, 230);
+    border-radius: 15px;
+    padding: 0 75px 0 75px; */
+}
+.current{
+    font-size: 1.3rem;
+    margin-bottom: 3px;
+}
+.icon-img {
+    width: 150px;
+    height: 150px;
 }
 .weather-description{
-    margin-bottom: 1.2rem;
-    font-size: 1rem;
+    margin-bottom: 1.8rem;
+    font-size: 1.8rem;
 }
 .temperature-wrapper {
     display: flex;  
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* font-family: 'Poiret One', cursive; */
+    
+   
 
 }
 .min-max-wrapper {
     display: flex;  
-    font-size: 2rem;
+    font-size: 1.8rem;
     align-items: center;
     justify-content: center;
 }
 .current-temp{
-    font-size: 3rem;
-    margin-bottom: 1.2rem ;
+    font-size: 2.5rem;
+    margin-bottom: 1rem ;
 }
 .feels-like-temp {
-    margin-bottom: 1.2rem
+    font-size: 1.8rem;
+    margin-bottom: 0.7rem
 
 }
 .min-temp-wrapper {
@@ -56,6 +84,7 @@ body {
     align-items: center;
     padding: 10px;
     margin-right: 20px;
+    font-size: 1.8rem;
 }
 .max-temp-wrapper {
     display: flex;
@@ -65,50 +94,249 @@ body {
     margin-left: 20px;
 }
 p {
-    font-size: 1rem;
+    font-size: 1.6rem;
+}
+.min-temp, .max-temp {
+    font-size: 1.8rem;
 }
 
 .extended-forecast{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    display: flex;
     display: grid;
-    gap: 2px;
-    grid-template-areas: "day-one day-two" 
-                         "day-three day-four"
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    grid-template-areas: "day-one day-two day-three day-four";
+    margin-bottom: 20px;
 }
 .day-one{
     grid-area: day-one;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
-    padding: 5px;
+    background-color: rgb(41, 224, 169);
+    border-radius: 15px;
+    /* border: 2px solid black; */
+    padding: 10px 20px;
+    /* margin-right: 20px;    */
 }
 .day-two{
     grid-area: day-two;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
-    padding: 5px;
+    background-color: rgb(224, 41, 184);
+    border-radius: 15px;
+    /* border: 2px solid black; */
+    padding: 10px 20px;
+    
 }
 .day-three{
     grid-area: day-three;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
-    padding: 5px;  
+    background-color: rgb(224, 221, 41);
+    border-radius: 15px;
+    /* border: 2px solid black; */
+    padding: 10px 20px;  
+    /* margin-right: 20px; */
 }
 .day-four{
     grid-area: day-four;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
-    padding: 5px;   
+    background-color: rgb(41, 157, 224);
+    border-radius: 15px;
+    /* border: 2px solid black; */
+    
+    padding: 10px 20px;   
+    /* margin-left: 20px; */
+}
+#day-name {
+    font-size: 2rem;
+}
+#temp-forecast {
+    font-size: 1.8rem;
 }
 .min-max-wrapper-forecast {
     display: flex;
     flex-direction: column;
+}
+.forecast-img{
+    width: 130px;
+    height: 130px;
+}
+.min-temp-forecast, .max-temp-forecast {
+    font-size: 1rem;
+}
+
+@media (max-width:760px) {
+
+    .today-forecast { 
+        border-radius: 12px;
+        margin-bottom: 6px;
+        padding: 0 70px 0 70px;
+    }
+    .location {
+        margin: 1rem 0rem 0.4rem 0 ;
+        font-size: 1.6rem;  
+    }
+    .current{
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+    }
+    .icon-img {
+        margin-top: 10px;
+        width: 80px;
+        height: 80px;
+    }
+    .weather-description{
+        margin-bottom: 1.2rem;
+        font-size: 1rem;
+    }
+    .min-max-wrapper {
+        font-size: 1.8rem;
+    }
+    .current-temp{
+        font-size: 2rem;
+        margin-bottom: 0.8rem ;
+    }
+    .feels-like-temp {
+        margin-bottom: 0.4rem;
+        font-size: 1.5rem;
+    
+    }
+    .min-temp-wrapper {
+        padding: 10px;
+        margin-right: 20px;
+    }
+    .max-temp-wrapper {
+        padding: 10px;
+        margin-left: 20px;
+    }
+    p {
+        font-size: 0.8rem;
+    }
+    .min-temp, .max-temp {
+        font-size: 1rem;
+    }
+    .day-one{
+        padding: 5px 30px;
+    }
+    .day-two{
+        padding: 5px 30px;
+    }
+    .day-three{
+        padding: 5px 30px;  
+    }
+    .day-four{
+        padding: 5px 30px;   
+    }
+    #day-name {
+        font-size: 1rem;
+    }
+    #temp-forecast {
+        font-size: 0.8rem;
+    }
+    .forecast-img{
+        width: 50px;
+        height: 50px;
+    }
+    .min-temp-forecast, .max-temp-forecast {
+        font-size: 1rem;
+    }
+    }
+@media (max-width:520px) {
+
+.today-forecast {
+    border-radius: 15px;
+    margin-bottom: 6px;
+    padding: 0 30px 0 30px;
+}
+.location {
+    margin: 1rem 0rem 0.4rem 0 ;
+    font-size: 1.6rem;  
+}
+.current{
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+}
+.icon-img {
+    margin-top: 5px;
+    width: 70px;
+    height: 70px;
+}
+.weather-description{
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+}
+.min-max-wrapper {
+    display: flex;  
+    font-size: 1.8rem;
+    align-items: center;
+    justify-content: center;
+}
+.current-temp{
+    font-size: 2rem;
+    margin-bottom: 0.8rem ;
+}
+.feels-like-temp {
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+
+}
+.min-temp-wrapper {
+    padding: 10px;
+    margin-right: 20px;
+}
+.max-temp-wrapper {
+    padding: 10px;
+    margin-left: 20px;
+}
+p {
+    font-size: 0.8rem;
+}
+.min-temp, .max-temp {
+    font-size: 1rem;
+}
+
+.extended-forecast{
+    display: grid;
+    gap: 10px;
+    grid-template-areas: "day-one day-two" 
+                         "day-three day-four"
+    
+}
+.day-one{
+    grid-area: day-one;
+    padding: 5px 35px;
+    margin-right: 15px;   
+}
+.day-two{
+    grid-area: day-two;
+    padding: 5px 35px;
+    margin-left: 15px;
+}
+.day-three{
+    grid-area: day-three;
+    padding: 5px 35px;  
+    margin-right: 15px;
+}
+.day-four{
+    grid-area: day-four;
+    padding: 5px 35px;   
+    margin-left: 15px;
+}
+#day-name {
+    font-size: 1rem;
+}
+#temp-forecast {
+    font-size: 0.8rem;
 }
 .forecast-img{
     width: 30px;
@@ -116,4 +344,5 @@ p {
 }
 .min-temp-forecast, .max-temp-forecast {
     font-size: 1rem;
+}
 }
